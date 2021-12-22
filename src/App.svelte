@@ -1,10 +1,17 @@
 <script>
-	export let name;
+	 let number = 0;
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<h1>Number {number}</h1>
+	<input bind:value={number} type="number" />
+	{#if number === 0 }
+	<h1>Hello Ayush!!</h1>
+	{:else if number === 1}
+	<h1>Hello SpiderMan!! </h1>
+	{:else}
+	<h1>Hello World!!</h1>
+	{/if}
 </main>
 
 <style>
