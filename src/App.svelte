@@ -1,10 +1,19 @@
 <script>
 	export let name;
+
+	function delay(ms) {
+		return new Promise(resolve => setTimeout(resolve, ms));
+	}
+	let rando = delay(2000).then(() =>Math.random());
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	{#await rando}
+	<p>I waited for 2 seconds.</p>
+	{:then number}
+	<p>I waited for 2 seconds and got {number}.</p>
+	{/await}
 </main>
 
 <style>
