@@ -1,10 +1,25 @@
 <script>
-	export let name;
+	export let name = "Ayush";
+	import Child from "./Child.svelte";
+	let data = {
+		userId:11,
+		name:"Ayush",
+		email:"ab@gmail.com"
+	}
+	let data2 = {
+		userId:16,
+		name:"Ayush Bante",
+		email:"ab124@gmail.com"
+	}
+	
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<!-- passing one prop ata a time  -->
+	<Child userId={data.userId} email={data.email} name={data.name} />
+	<!-- using spread operator -->
+	<Child {...data2} />
 </main>
 
 <style>
